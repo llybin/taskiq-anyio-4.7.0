@@ -1,0 +1,5 @@
+RMQ_USER=guest
+RMQ_PASSWORD=guest
+RMQ_HOST=ppp-rabbitmq
+RMQ_PORT=5672
+RMQ_NAME=

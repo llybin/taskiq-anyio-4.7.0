@@ -1,0 +1,8 @@
+*
+!docker/
+!src/
+!poetry.lock
+!pyproject.toml
+.pytest_cache/
+**/__pycache__
+**/*.py[cod]

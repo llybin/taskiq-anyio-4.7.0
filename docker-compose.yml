@@ -1,0 +1,23 @@
+services:
+
+  ppp-taskiq:
+    container_name: ppp-taskiq
+    image: ppp:latest
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: taskiq worker taskiq_app:broker --fs-discover --reload
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      - ppp-rabbitmq
+    env_file:
+      - docker/env
+
+  ppp-rabbitmq:
+    container_name: pure-ppp-rabbitmq
+    image: rabbitmq:3.12-management-alpine
+    hostname: rabbitmq
+    expose:
+      - "5672"
+      - "15672"
